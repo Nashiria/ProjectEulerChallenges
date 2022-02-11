@@ -6,13 +6,13 @@
 import timeit
 
 start = timeit.default_timer()
-def findMultiplesOfN(n=3,limit=1000):
-    tmp=[]
-    for num in range(limit-10):
-        if(num+10) %n == 0:
-            tmp.append(num+10)
+def findMultiplesOfN(n1=3,n2=5,limit=1000):
+    sums=0
+    for num in range(limit):
+        if num %n1 == 0 or (num) %n2 == 0:
+            sums+=num
     # return tmp for numbers in list
-    return sum(tmp)
+    return sums
 print(findMultiplesOfN())
 stop = timeit.default_timer()
 
