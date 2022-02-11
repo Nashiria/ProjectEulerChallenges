@@ -12,6 +12,9 @@
 # Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that 1/7 has a 6-digit recurring cycle.
 
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
+import timeit
+
+start = timeit.default_timer()
 
 def patternFinder(divider):
     num=1
@@ -31,3 +34,6 @@ for n in range(1000):
         maxp=p
         maxn=n+1
 print(maxn,maxp)
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  

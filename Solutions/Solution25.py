@@ -18,6 +18,9 @@
 # The 12th term, F12, is the first term to contain three digits.
 # 
 # What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+import timeit
+
+start = timeit.default_timer()
 
 def fibonacci(n):
     nth=1
@@ -30,3 +33,6 @@ def fibonacci(n):
     return nth
 
 print(fibonacci(1000000))
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  

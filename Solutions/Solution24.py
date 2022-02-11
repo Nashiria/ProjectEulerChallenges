@@ -3,27 +3,25 @@
 # 012   021   102   120   201   210
 #
 # What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+import timeit
 
-
+start = timeit.default_timer()
 
 def permutations(maximum):
     numbers=[str(x) for x in range(maximum+1)]
-    n=1
-    lastIndex=len(numbers)-1
-    startIndex=0
-    currentIndex=0
-    combinations=[]
+    max=sorted(numbers,reverse=True)
+    n=0
+    count=int("".join(sorted(numbers)))-1
     while n<1000000:
-        print(n,numbers)
-        n+=1
-        if currentIndex==lastIndex:
-            startIndex+=1
-            currentIndex=startIndex
-        if startIndex==lastIndex:
-            break
-        else:
-            combinations.append(numbers)
-            numbers[currentIndex],numbers[currentIndex+1]=numbers[currentIndex+1],numbers[currentIndex]
-        currentIndex+=1
-permutations(2)
+        num = str("0"*(len(numbers)-len(str(count))))+str(count)
+        if set([x for x in str(num)]) == set(numbers) and len(num)==len(numbers):
+            n+=1
+            print(n,count)
+            if ([x for x in str(num)]==max):
+                break
+        count+=1
+    return count,n
+print(permutations(9))
+stop = timeit.default_timer()
 
+print('Time: ', stop - start)  

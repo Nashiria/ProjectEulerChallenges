@@ -4,7 +4,9 @@
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+import timeit
 
+start = timeit.default_timer()
 def SumOfFibonacciEvenValues(limit=4000000):
     tmp=[]
     toReturn=0
@@ -18,4 +20,6 @@ def SumOfFibonacciEvenValues(limit=4000000):
     print(tmp)
     return toReturn
 print(SumOfFibonacciEvenValues())
+stop = timeit.default_timer()
 
+print('Time: ', stop - start)  

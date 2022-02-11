@@ -24,6 +24,9 @@ grid="""08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 # The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 
 # What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+import timeit
+
+start = timeit.default_timer()
 
 def strTo2DGrid(grid):
     grid=(grid.replace("\n"," ").replace("  "," ")).split(' ')
@@ -59,4 +62,6 @@ def findMaxProduct(grid,length):
                 maxProduct=prod
     return maxProduct
 print(findMaxProduct(grid,4))
+stop = timeit.default_timer()
 
+print('Time: ', stop - start)  

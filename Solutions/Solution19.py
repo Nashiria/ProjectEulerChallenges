@@ -9,6 +9,9 @@
 # And on leap years, twenty-nine.
 # A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
 # How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+import timeit
+
+start = timeit.default_timer()
 
 def leapYear(year):
     if year%4==0 and year%100!=0:
@@ -45,5 +48,7 @@ while year<2001:
     if days[totalDay%7]=="Sunday" and day==1 and year>1900:
         sunday+=1
 print(sunday)
+stop = timeit.default_timer()
 
+print('Time: ', stop - start)  
 

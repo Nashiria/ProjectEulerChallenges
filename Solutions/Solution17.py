@@ -3,6 +3,9 @@
 # If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
 # 
 # NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
+import timeit
+
+start = timeit.default_timer()
 
 def numberToWord(number):
     oneDigit=["","one","two","three","four","five","six","seven","eight","nine"]
@@ -28,3 +31,6 @@ for i in range(1,1001):
     num1.append([numberToWord(i),len(numberToWord(i))])
     n+=len(numberToWord(i))
 print(n)
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  

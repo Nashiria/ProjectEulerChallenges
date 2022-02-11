@@ -11,6 +11,9 @@
 # Which starting number, under one million, produces the longest chain?
 # 
 # NOTE: Once the chain starts the terms are allowed to go above one million.
+import timeit
+
+start = timeit.default_timer()
 
 def chainCount(number):
     chain=0
@@ -27,10 +30,12 @@ def maxChainCount(number):
     maxChain=0
     for i in range(number):
         chain=chainCount(i+1)
-        print(i,chain)
         if chain>maxChain:
             maxChain=chain
             maxChainNumber=i+1
     return maxChainNumber,maxChain
 
 print(maxChainCount(1000000))
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  

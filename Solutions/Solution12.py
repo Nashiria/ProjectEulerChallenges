@@ -14,6 +14,9 @@
 # We can see that 28 is the first triangle number to have over five divisors.
 #
 # What is the value of the first triangle number to have over five hundred divisors?
+import timeit
+
+start = timeit.default_timer()
 
 def divisorCount(number):
     count = 0
@@ -31,3 +34,6 @@ def findTriangleNumber(number):
         n+=1
     return [n,int(((n*(n+1)/2))),divisorCount((n*(n+1)/2))]
 print(findTriangleNumber(500))
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  

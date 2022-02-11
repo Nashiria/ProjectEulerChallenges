@@ -1,6 +1,9 @@
 # Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
 # How many such routes are there through a 20×20 grid?
 
+import timeit
+
+start = timeit.default_timer()
 
 def Way(dimension):
     length=dimension*2
@@ -9,3 +12,6 @@ def Way(dimension):
         pascal=[1]+[pascal[i]+pascal[i+1] for i in range(len(pascal)-1)]+[1]
     return pascal[len(pascal)//2]
 print(Way(20))
+stop = timeit.default_timer()
+
+print('Time: ', stop - start)  
